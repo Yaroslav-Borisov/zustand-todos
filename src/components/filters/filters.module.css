@@ -1,0 +1,21 @@
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 20px;
+}
+
+.filter {
+    padding: 10px 10px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.filter__active {
+    color: #e30808;
+    border: 2px solid #e30808;
+}
