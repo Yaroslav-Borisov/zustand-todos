@@ -1,14 +1,9 @@
+import { TodoType } from '../../const';
 import BusketIcon from '../../icons/busket';
 import DoneIcon from '../../icons/done';
-import { useTodos } from '../../store/store';
+import { useTodos } from '../../store/useTodos';
 import styles from './todoItem.module.css';
 import cn from 'classnames';
-
-interface TodoType {
-  id: string;
-  text: string;
-  doneStatus: boolean;
-}
 
 interface TodoItemProps {
   todoItem: TodoType;
@@ -20,13 +15,19 @@ const TodoItem = ({ todoItem }: TodoItemProps) => {
 
   return (
     <li className={styles.todoItem}>
-      <button className={styles.todoItem__done} onClick={() => changeTodoDoneStatus(todoItem.id)}>
+      <button
+        className={styles.todoItem__done}
+        onClick={() => todoItem.id && changeTodoDoneStatus(todoItem)}
+      >
         <DoneIcon className={styles.todoItem__doneIcon} />
       </button>
-      <span className={cn(styles.todoItem__text, todoItem.doneStatus && styles.todoItem__textDone)}>
-        {todoItem.text}
+      <span className={cn(styles.todoItem__text, todoItem.completed && styles.todoItem__textDone)}>
+        {todoItem.title}
       </span>
-      <button className={styles.todoItem__delete} onClick={() => deleteTodo(todoItem.id)}>
+      <button
+        className={styles.todoItem__delete}
+        onClick={() => todoItem.id && deleteTodo(todoItem)}
+      >
         <BusketIcon className={styles.todoItem__deleteIcon} />
       </button>
     </li>

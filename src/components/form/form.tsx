@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useTodos } from '../../store/store';
+import { useTodos } from '../../store/useTodos';
 import styles from './form.module.css';
 
 const Form = () => {
