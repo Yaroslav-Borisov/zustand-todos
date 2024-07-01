@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { BASE_URL, TodoType } from "../const";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 interface initialState {
     todos: TodoType[],
