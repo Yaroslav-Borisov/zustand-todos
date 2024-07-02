@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { devtools } from 'zustand/middleware'
 import { BASE_URL, TodoType } from "../const";
 import axios from "axios";
 
@@ -12,7 +13,7 @@ interface initialState {
     getTodos: () => void
 }
 
-export const useTodos = create<initialState>((set, get) => ({
+export const useTodos = create(devtools<initialState>((set, get) => ({
     todos: [],
     loading: false,
     error: null,
@@ -75,4 +76,4 @@ export const useTodos = create<initialState>((set, get) => ({
             set({ error: String(error), loading: false })
         }
     }
-}))
+})))
